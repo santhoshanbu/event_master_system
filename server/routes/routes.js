@@ -1,9 +1,10 @@
-import { getEventManager } from "../controllers/EventManagerController.js";
+import { getEventManager,postEventManager } from "../controllers/EventManagerController.js";
 
 import express from 'express'
 
 const router = express.Router();
 
-router.get('/eventManager', getEventManager);
+router.get('/', getEventManager);
+router.post('/', postEventManager);
 
 export default router;

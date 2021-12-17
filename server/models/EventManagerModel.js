@@ -1,43 +1,40 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const eventManagerSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
+  firstName: {
+    type: String,
+  },
+  lastName: {
+    type: String,
+  },
+  occupation: {
+    type: String,
+  },
 
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    phone: {
-        type: String,
-        required: true
-    },
-    address: {
-        type: String,
-        required: true
+  address1: {
+    type: String,
+  },
+  address2: {
+    type: String,
+  },
+  email: {
+    type: String,
+  },
 
-    },
-    address2: {
-        type: String,
-        required: true
-    },
-    type:{
-        type: String,
-        required: true
-    },
-    website: {
-        type: String,
-        required: true
+  password: {
+    type: String,
+  },
+  phone: {
+    type: String,
+  },
+  website: {
+    type: String,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
+});
 
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now()
-    },
-
-})
-
-const EventManagerModel = mongoose.model('EventManager', eventManagerSchema)
-export default EventManagerModel
+const EventManagerModel = mongoose.model("EventManager", eventManagerSchema);
+export default EventManagerModel;

@@ -16,6 +16,8 @@ import {
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { TextField, } from "formik-material-ui";
+import {useDispatch} from 'react-redux'
+import { createManager } from "../../actions/managers";
 
 const useStyle = makeStyles((theme) => ({
   padding: {
@@ -75,13 +77,20 @@ let validationSchema = Yup.object().shape({
 });
 
 const UserForm = () => {
+const dispatch = useDispatch()
+
   const classes = useStyle();
 
   const onSubmit = (values) => {
+    dispatch(createManager(values))
     console.log(values);
+
+
+    
   };
 
   return (
+    <>
     <Grid container spacing={4} justifyContent="center">
       <Grid item md={6}>
         <Card className={classes.padding}>
@@ -100,7 +109,7 @@ const UserForm = () => {
               resetForm,
             }) => {
               return (
-                <Form autoComplete="off">
+                <Form>
                   <CardContent>
                     <Grid item container spacing={1} justify="center">
                       <Grid item xs={12} sm={6} md={6}>
@@ -242,7 +251,11 @@ const UserForm = () => {
         </Card>
       </Grid>
     </Grid>
+
+   </> 
   );
+
+
 };
 
 export default UserForm;

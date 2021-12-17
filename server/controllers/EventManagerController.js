@@ -10,13 +10,17 @@ try {
     
 }
 
-export const postEventManager = async(req, res) => {
-    try{
-        const eventManager = await EventManagerModel.create(req.body);
-        res.status(200).json(eventManager);
-    }
-    catch(error){
-        res.status(500).json({"message": "Error"});
+export const postEventManager = async (req, res) => {
+    const body = req.body;
+
+    const newPostManager = new EventManagerModel(body)
+
+    try {
+        await newPostManager.save();
+
+        res.status(201).json(newPostManager );
+    } catch (error) {
+        res.status(409).json({ message: error.message });
     }
 }
 
