@@ -47,7 +47,9 @@ const Managers = () => {
         
        !managers.length? <CircularProgress />:(
         <div>
-           <Grid>{managers.map(manager => <Manager key={manager.id} manager={manager}/>)}
+           <Grid>{
+              managers.map(manager => <Manager key={manager.id} manager={manager}/>)
+             }
         
         </Grid>
       </div>
